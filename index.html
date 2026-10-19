@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catatan Freelancer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div class="container"> 
+            <h3>Catatan Freelancer</h3>
+            <nav>
+                <ul>
+                    <li><a href="#ringkasan">Beranda</a></li>
+                    <li><a href="#riwayat">Riwayat</a></li>
+                    <li><a href="#backup">Backup</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="cards">
+            <div class="card-saldo">
+                <p>Total Saldo</p>
+                <h2 id="total-saldo">Rp 0</h2>
+            </div>
+            <div class="card-pemasukan">
+                <p>Pemasukan</p>
+                <h2 id="total-pemasukan">Rp 0</h2>
+            </div>
+            <div class="card-pengeluaran">
+                <p>Pengeluaran</p>
+                <h2 id="total-pengeluaran">Rp 0</h2>
+            </div>
+            <div class="card-piutang">
+                <p>Total Piutang</p>
+                <h2 id="total-piutang"></h2>
+            </div>
+        </section>
+
+        <section class="main">
+            <div class="box">
+                <h3>Tambah Transaksi</h3>
+                <form id="formtransaksi" novalidate>
+                    <input type="hidden" id="edit-id">
+
+                    <label for="tanggal">Tanggal</label>
+                    <input type="date" id="tanggal" name="tanggal" required>
+
+                    <label for="jenis">Jenis</label>
+                    <select id="jenis" name="jenis" required>
+                        <option value="" disabled selected hidden>
+                            Pilih jenis
+                        </option>
+                        <option value="pemasukan">Pemasukan</option>
+                        <option value="pengeluaran">Pengeluaran</option>
+                        <option value="tagihan">Tagihan Klien</option>
+                    </select>
+
+                    <label for="kategori">Kategori</label>
+                    <select id="kategori" name="kategori" required>
+                        <option value="" disabled selected hidden>
+                            Pilih Kategori
+                        </option>
+                        <!--plihan di JS-->
+                    </select>
+
+                    <div id="field-tagihan" hidden>
+                        <label for="klien">Nama Klien</label>
+                        <input type="text" id="klien" name="klien" placeholder="Nama klien">
+
+                        <label for="status">Status</label>
+                        <select id="status" name="status">
+                            <option value="belum">Belum dibayar</option>
+                            <option value="lunas">Lunas</option>
+                        </select>
+                    </div>
+
+                    <label for="nominal">Nominal</label>
+                    <input type="number" id="nominal" min="1" placeholder="0" required>
+
+                    <label for="catatan">Catatan (opsional)</label>
+                    <input type="text" id="catatan" name="Catatan" placeholder="Catatan">
+
+                    <p id="error-message" class="error"></p>
+                    <button type="submit">Tambah</button>
+                    <button type="button" id="btn-batal" hidden>Batal</button>
+                </form>
+            </div>
+
+            <div class="box">
+                <h3 class="tabel-riwayat">Riwayat Transaksi</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Tanggal</th>
+                            <th scope="col">Jenis</th>
+                            <th scope="col">Kategori</th>
+                            <th scope="col">Nominal</th>
+                            <th scope="col">Catatan</th>
+                        </tr>
+                    </thead>
+                    <tbody class="riwayat-transaksi">
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+
+</html> 
